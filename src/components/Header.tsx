@@ -242,7 +242,7 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Official NKE Corporate Logo */}
         <div className="bg-white px-2.5 py-1 rounded-md shadow-sm border border-slate-200/30 flex items-center justify-center shrink-0 group-hover:scale-102 transition-transform">
           <img 
-            src="/logo_nke.svg" 
+            src={`${import.meta.env.BASE_URL}logo_nke.svg`} 
             alt="Logo PT Nusa Konstruksi Enjiniring" 
             className="h-7 md:h-8 w-auto object-contain"
           />

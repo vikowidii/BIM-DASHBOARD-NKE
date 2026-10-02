@@ -110,7 +110,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         <div className="text-center mb-6">
           <div className="inline-block bg-white px-4 py-2 rounded-lg shadow-md border border-slate-200/20 mb-2.5">
             <img 
-              src="/logo_nke.svg" 
+              src={`${import.meta.env.BASE_URL}logo_nke.svg`} 
               alt="PT Nusa Konstruksi Enjiniring" 
               className="h-9 w-auto mx-auto object-contain"
             />
