@@ -1,0 +1,36 @@
+{
+  "system": {
+    "name": "NKE BIM Dashboard",
+    "version": "2.4.0",
+    "company": "PT Nusa Konstruksi Enjiniring Tbk",
+    "lan_port": 3000,
+    "last_updated": "2026-10-01"
+  },
+  "roles_policy": {
+    "viewer": {
+      "allow_dashboard": false,
+      "allow_documents": false,
+      "allow_clash_issues": false,
+      "allow_progress": false,
+      "allow_3d_view": true,
+      "allow_project_info": true
+    },
+    "user": {
+      "allow_dashboard": true,
+      "allow_documents": true,
+      "allow_clash_issues": true,
+      "allow_progress": true,
+      "allow_3d_view": true,
+      "allow_upload": true
+    },
+    "admin": {
+      "allow_dashboard": true,
+      "allow_documents": true,
+      "allow_clash_issues": true,
+      "allow_progress": true,
+      "allow_3d_view": true,
+      "allow_approval": true,
+      "allow_manage_projects": true
+    }
+  }
+}

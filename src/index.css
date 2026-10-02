@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+/* Leaflet Dark Theme Overrides & Custom BIM Markers */
+.leaflet-container {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #0b1526 !important;
+}
+
+/* Custom Marker Styling */
+.nke-custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Anchor: zero-size box exactly at the lat/lng. The label can grow to any width
+   (no clipping) and the pin tip stays on the coordinate. */
+.nke-marker-anchor {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  transform: translateX(-50%);
+  width: max-content;
+}
+
+.nke-marker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6));
+  transform-origin: 50% 100%;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nke-marker-container:hover {
+  transform: translateY(-4px) scale(1.06);
+}
+
+.nke-marker-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(11, 21, 38, 0.96);
+  border: 1px solid rgba(96, 165, 250, 0.6);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  line-height: 1.25;
+  padding: 3.5px 8.5px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55);
+  margin-bottom: 5px;
+  /* text halo keeps the name legible over busy map tiles */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.nke-marker-name {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+.nke-marker-label span.badge-pending {
+  flex-shrink: 0;
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: rgba(234, 179, 8, 0.22);
+  color: #fde047;
+  border: 1px solid rgba(234, 179, 8, 0.45);
+}
+.nke-marker-label span.badge-pending.badge-rejected {
+  background: rgba(239, 68, 68, 0.22);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.45);
+}
+
+/* Zoomed out: compact label, no category badge (avoids overlapping labels) */
+.nke-zoom-low .nke-marker-label {
+  font-size: 10px;
+  padding: 2.5px 7px;
+}
+.nke-zoom-low .nke-marker-label .badge-type {
+  display: none;
+}
+.nke-zoom-low .nke-marker-name {
+  max-width: 140px;
+}
+
+/* Mid zoom */
+.nke-zoom-mid .nke-marker-name {
+  max-width: 230px;
+}
+
+/* Zoomed in: full project name, larger text */
+.nke-zoom-high .nke-marker-label {
+  font-size: 12.5px;
+  padding: 4.5px 10px;
+}
+.nke-zoom-high .nke-marker-name {
+  max-width: 420px;
+}
+
+/* Hovering any marker always reveals the complete name */
+.nke-marker-container:hover .nke-marker-name {
+  max-width: 460px;
+}
+
+.nke-marker-label span.badge-type {
+  flex-shrink: 0;
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: rgba(46, 107, 240, 0.25);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.nke-marker-pin {
+  width: 38px;
+  height: 38px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nke-marker-pin-inner {
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+/* Pulsing radar point under the pin */
+.nke-marker-pulse {
+  position: absolute;
+  bottom: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2e6bf0;
+  box-shadow: 0 0 10px #2e6bf0;
+}
+
+/* Leaflet Popup Styling */
+.leaflet-popup-content-wrapper {
+  background-color: #0f2444 !important;
+  color: #ffffff !important;
+  border-radius: 12px !important;
+  border: 1px solid #1e3454 !important;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.65) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-popup-tip {
+  background-color: #0f2444 !important;
+  border: 1px solid #1e3454 !important;
+}
+
+.leaflet-popup-close-button {
+  color: #9fb0c8 !important;
+  top: 8px !important;
+  right: 8px !important;
+  font-size: 16px !important;
+  padding: 4px !important;
+  z-index: 10 !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: #ffffff !important;
+}
+
+/* Zoom controls */
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-control-zoom a {
+  background-color: #102544 !important;
+  color: #ffffff !important;
+  border: 1px solid #1e3454 !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: #1a3760 !important;
+  color: #2e6bf0 !important;
+}
+
+/* Custom Scrollbar for Dark Theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b1526;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3454;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2e6bf0;
+}
